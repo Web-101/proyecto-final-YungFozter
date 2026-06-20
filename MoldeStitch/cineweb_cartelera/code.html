@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>CineWeb - Cartelera</title>
-<!-- Tailwind CSS v3 CDN -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Google Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<!-- BEGIN: Custom Configuration -->
-<script id="tailwind-config">
+<html class="dark" lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CineWeb - Cartelera</title>
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <!-- BEGIN: Custom Configuration -->
+  <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -21,7 +25,7 @@
       },
     }
   </script>
-<style data-purpose="global-styles">
+  <style data-purpose="global-styles">
     @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&display=swap');
 
     body {
@@ -43,162 +47,198 @@
     .hide-scrollbar::-webkit-scrollbar {
       display: none;
     }
+
     .hide-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
   </style>
-<style data-purpose="movie-card-styles">
+  <style data-purpose="movie-card-styles">
     /* Subtle overlay for movie cards to improve text readability if needed */
     .movie-card-hover:hover .movie-overlay {
       opacity: 1;
     }
+
     .movie-overlay {
-      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
   </style>
-<!-- END: Custom Configuration -->
+  <!-- END: Custom Configuration -->
 </head>
+
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col pt-20 pb-20 md:pb-8">
-<!-- BEGIN: MainHeader -->
-<header class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md flex justify-between items-center px-6 py-4 border-b border-zinc-800">
-<div class="flex items-center gap-2 text-yellow-500" data-purpose="logo">
-<span class="material-symbols-outlined">movie</span>
-<span class="font-bold text-xl uppercase tracking-tighter">CineWeb</span>
-</div>
-<!-- Desktop Navigation -->
-<nav class="hidden md:flex gap-8" data-purpose="desktop-nav">
-<a class="text-yellow-500 font-medium border-b-2 border-yellow-500 pb-1" href="#">Cartelera</a>
-<a class="text-zinc-400 hover:text-yellow-500 transition-colors" href="#">Tickets</a>
-</nav>
-<div class="text-zinc-100 cursor-pointer p-1 hover:bg-zinc-800 rounded-full transition-colors" data-purpose="search-trigger">
-<span class="material-symbols-outlined">search</span>
-</div>
-</header>
-<!-- END: MainHeader -->
-<!-- BEGIN: MainContent -->
-<main class="flex-grow px-6 max-w-7xl mx-auto w-full mt-6">
-<!-- Search Section -->
-<section class="mb-8" data-purpose="search-container">
-<div class="relative flex items-center w-full bg-zinc-900 rounded-lg border border-zinc-800 focus-within:border-yellow-500/50 transition-colors">
-<span class="material-symbols-outlined absolute left-3 text-zinc-500">search</span>
-<input class="w-full bg-transparent text-zinc-100 pl-10 pr-4 py-3 border-none focus:ring-0 placeholder:text-zinc-600" id="buscar-titulo" placeholder="Buscar película..." type="text"/>
-</div>
-</section>
-<!-- Genre Filter Section -->
-<section class="mb-8" data-purpose="filters">
-<div class="flex overflow-x-auto gap-3 hide-scrollbar pb-2">
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-yellow-500 text-black font-bold text-sm shadow-lg shadow-yellow-500/20">Todos</button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Acción</button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Animación</button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Drama</button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Terror</button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Ciencia Ficción</button>
-</div>
-</section>
-<!-- Movies Grid -->
-<section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mb-12" data-purpose="movie-grid" id="contenedor-peliculas">
-<!-- Movie 1: Dune -->
-<article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
-<div class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
-<img alt="Dune Parte Dos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPGMLpniSXBO4_3ALxISdy12bVRIZiSO5gWSQZjM-5E1ON34uBQFWE2RuD-m0Xil90XgafeJoEAsf_kRaO_f3xed33DDWphgYXK1JtrGp3Vl1PXo7dIvZR5FG9AzaxkJH0hGfyW2e3xcZ9LSHhh1HfPo0LG_Gn0eKKn1F7qVKauxGwTmfkwi_PVGz2WdfT0mh8uozhB5UC3dHRbQx5JNrlFOPGIlejoVi570Vr3pozUNYLf4KNszGRPItc7ApioC-SP9kpRDWOSQ"/>
-<div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
-<button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver detalles</button>
-</div>
-</div>
-<div class="mt-3">
-<h3 class="font-bold text-sm md:text-base line-clamp-1">Dune: Parte Dos</h3>
-<p class="text-xs text-zinc-500">Ciencia Ficción • 2024</p>
-</div>
-</article>
-<!-- Movie 2: Godzilla vs Kong -->
-<article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
-<div class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
-<img alt="Godzilla vs Kong" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWVTvy_fs0b1uHD6Jkh7thXzbgGE6rSi9vZ4fvTuKlYRTajyBWFdkglkm31LrElvOTEKfteTEjcOBlWFhaSavY1uteNL5ym71uVr2DVPaCoRQlzUPj-IrtJgUSnauZnS-MmKv8Cd3ADH41bsGqbYY1huWfKOHDl3jR9dRZQrniuo5BgiEtowCmYO118rv6D432To4ZSLmAPm5U3_EH5Di9v0DO7lj4tWcxdmiCJghPntQIYko559mQHI8sva-NDPdIcPXx8irEvw"/>
-<div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
-<button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver detalles</button>
-</div>
-</div>
-<div class="mt-3">
-<h3 class="font-bold text-sm md:text-base line-clamp-1">Godzilla vs. Kong</h3>
-<p class="text-xs text-zinc-500">Acción • 2021</p>
-</div>
-</article>
-<!-- Movie 3: Kung Fu Panda 4 -->
-<article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
-<div class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
-<img alt="Kung Fu Panda 4" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB90jRSxP_nIF2W-BsyQrI1-eN63EpHhSuxn4z9Q4HzHtpsw3O6LyO9nAsAWnpuAyyEKNX6NBrvgcPvzvXlIvCKxpVBOQq5lA5gD-JRA8HYuY2vGL307XBDENpM4LCwaV7IS5VlTMjMJiKCkmkEZ-5xFTjOS7D_oGZVcrUsTrg5MhrM9aoSqRJvWieWOrOzRHWOSXOsbYWHyBl7TneBmoy938_z23_ay7Og20oz7IStWKwaRZ0Edl6G3qAorBJgsb0n1yEeAl2nWA"/>
-<div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
-<button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver detalles</button>
-</div>
-</div>
-<div class="mt-3">
-<h3 class="font-bold text-sm md:text-base line-clamp-1">Kung Fu Panda 4</h3>
-<p class="text-xs text-zinc-500">Animación • 2024</p>
-</div>
-</article>
-<!-- Movie 4: The Conjuring -->
-<article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
-<div class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
-<img alt="The Conjuring: Last Rites" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCujJFGYEohY6UIravG4YmFm823uKUohq5r_MePA5ju_eEi-TPW8NAsA6itRNuOXhyqtdkZcrTn79P6c1tLNbvZhba8jVdsQ93XJJNXOXM0FghhctNFXsGDhAumFieSJSPUJl7Bt0als2SM37RsfmrUvyJwRkP1XORNyBZ5oJQyjxF4AQ4Aobp-KN8JVHt_tSu9T_grc-1jp2vebGWZlekCYhP6e4V2kGW2MIsafzB3xjCTE0UDZ9b8dFUvggjZKo_huhRi02-WHQ"/>
-<div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
-<button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver detalles</button>
-</div>
-</div>
-<div class="mt-3">
-<h3 class="font-bold text-sm md:text-base line-clamp-1">The Conjuring: Last Rites</h3>
-<p class="text-xs text-zinc-500">Terror • Próximamente</p>
-</div>
-</article>
-<!-- Movie 5: Superman -->
-<article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
-<div class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
-<img alt="Superman" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBQ77dDAcfR5Dzn22EVaXaXkyNmCOLo3w-98u58e5qvEN-6mPCywICcCyLIb-rOoVle20xBr33qqHbihpWrRz8nvKfYlLOJ_AhasF7X1gBvct0f-TTmDaJZi8QBy2XfF7s5SiNrc37NcM0of9Kjw63KE75Un-Bh59lpdDgr1Jte9-TgslnrrRws7Q3pC1p_6nVlXZiSQCokYKkZLsRdMQEygdmjtLX0QcSsk6-3fqhVx4DR9p11_lN3wQR4KEg2pYqlAhOfw1mXg"/>
-<div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
-<button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver detalles</button>
-</div>
-</div>
-<div class="mt-3">
-<h3 class="font-bold text-sm md:text-base line-clamp-1">Superman</h3>
-<p class="text-xs text-zinc-500">Acción • 2025</p>
-</div>
-</article>
-<!-- Movie 6: Mission Impossible -->
-<article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
-<div class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
-<img alt="Misión Imposible" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDolL_1kZUjaJAH9VzraEVMZSYY1LFGuY-7cnibMNfwHHQuYsxeySuUGsT-CkTdrOCCDeBk0YnNpWWSl8iC0rr6ydnT0uM2N0rMulmRe2cmhLZEUGc9kPbbIF_5jFvZEZWVnrZXSt15MpM09QBQYn7N08lbpMC0i6k6GsORy4M5qvvOAMIbxQuvIXMjwtmYCUW34Xyz_K6oZsEr-IY8umFHmlKLNv1sEhMtKiy0tWSpMjqL3bnu9iwvRiISfzQWY8cEUZ6h9hv89w"/>
-<div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
-<button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver detalles</button>
-</div>
-</div>
-<div class="mt-3">
-<h3 class="font-bold text-sm md:text-base line-clamp-1">Misión: Imposible - Sentencia Final</h3>
-<p class="text-xs text-zinc-500">Acción • 2025</p>
-</div>
-</article>
-</section>
-</main>
-<!-- END: MainContent -->
-<!-- BEGIN: MobileFooterNavigation -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-md bg-zinc-950/90 flex justify-around items-center h-16 border-t border-zinc-800" data-purpose="mobile-nav">
-<a class="flex flex-col items-center text-yellow-500" href="#">
-<span class="material-symbols-outlined filled">theater_comedy</span>
-<span class="text-[10px] mt-1 uppercase font-bold tracking-widest">Cartelera</span>
-</a>
-<a class="flex flex-col items-center text-zinc-500 hover:text-zinc-300 transition-colors" href="#">
-<span class="material-symbols-outlined">confirmation_number</span>
-<span class="text-[10px] mt-1 uppercase tracking-widest">Tickets</span>
-</a>
-<a class="flex flex-col items-center text-zinc-500 hover:text-zinc-300 transition-colors" href="#">
-<span class="material-symbols-outlined">person</span>
-<span class="text-[10px] mt-1 uppercase tracking-widest">Perfil</span>
-</a>
-</nav>
-<!-- END: MobileFooterNavigation -->
-<!-- Placeholder for JS logic described in original document -->
-<script data-purpose="app-logic">
+  <!-- BEGIN: MainHeader -->
+  <header
+    class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md flex justify-between items-center px-6 py-4 border-b border-zinc-800">
+    <div class="flex items-center gap-2 text-yellow-500" data-purpose="logo">
+      <span class="material-symbols-outlined">movie</span>
+      <span class="font-bold text-xl uppercase tracking-tighter">CineWeb</span>
+    </div>
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex gap-8" data-purpose="desktop-nav">
+      <a class="text-yellow-500 font-medium border-b-2 border-yellow-500 pb-1" href="#">Cartelera</a>
+      <a class="text-zinc-400 hover:text-yellow-500 transition-colors" href="#">Tickets</a>
+    </nav>
+    <div class="text-zinc-100 cursor-pointer p-1 hover:bg-zinc-800 rounded-full transition-colors"
+      data-purpose="search-trigger">
+      <span class="material-symbols-outlined">search</span>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
+  <!-- BEGIN: MainContent -->
+  <main class="flex-grow px-6 max-w-7xl mx-auto w-full mt-6">
+    <!-- Search Section -->
+    <section class="mb-8" data-purpose="search-container">
+      <div
+        class="relative flex items-center w-full bg-zinc-900 rounded-lg border border-zinc-800 focus-within:border-yellow-500/50 transition-colors">
+        <span class="material-symbols-outlined absolute left-3 text-zinc-500">search</span>
+        <input
+          class="w-full bg-transparent text-zinc-100 pl-10 pr-4 py-3 border-none focus:ring-0 placeholder:text-zinc-600"
+          id="buscar-titulo" placeholder="Buscar película..." type="text" />
+      </div>
+    </section>
+    <!-- Genre Filter Section -->
+    <section class="mb-8" data-purpose="filters">
+      <div class="flex overflow-x-auto gap-3 hide-scrollbar pb-2">
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-yellow-500 text-black font-bold text-sm shadow-lg shadow-yellow-500/20">Todos</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Acción</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Animación</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Drama</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Terror</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-yellow-500 text-sm transition-colors">Ciencia
+          Ficción</button>
+      </div>
+    </section>
+    <!-- Movies Grid -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mb-12" data-purpose="movie-grid"
+      id="contenedor-peliculas">
+      <!-- Movie 1: Dune -->
+      <article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
+        <div
+          class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img alt="Dune Parte Dos" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPGMLpniSXBO4_3ALxISdy12bVRIZiSO5gWSQZjM-5E1ON34uBQFWE2RuD-m0Xil90XgafeJoEAsf_kRaO_f3xed33DDWphgYXK1JtrGp3Vl1PXo7dIvZR5FG9AzaxkJH0hGfyW2e3xcZ9LSHhh1HfPo0LG_Gn0eKKn1F7qVKauxGwTmfkwi_PVGz2WdfT0mh8uozhB5UC3dHRbQx5JNrlFOPGIlejoVi570Vr3pozUNYLf4KNszGRPItc7ApioC-SP9kpRDWOSQ" />
+          <div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
+            <button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver
+              detalles</button>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-bold text-sm md:text-base line-clamp-1">Dune: Parte Dos</h3>
+          <p class="text-xs text-zinc-500">Ciencia Ficción • 2024</p>
+        </div>
+      </article>
+      <!-- Movie 2: Godzilla vs Kong -->
+      <article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
+        <div
+          class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img alt="Godzilla vs Kong" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWVTvy_fs0b1uHD6Jkh7thXzbgGE6rSi9vZ4fvTuKlYRTajyBWFdkglkm31LrElvOTEKfteTEjcOBlWFhaSavY1uteNL5ym71uVr2DVPaCoRQlzUPj-IrtJgUSnauZnS-MmKv8Cd3ADH41bsGqbYY1huWfKOHDl3jR9dRZQrniuo5BgiEtowCmYO118rv6D432To4ZSLmAPm5U3_EH5Di9v0DO7lj4tWcxdmiCJghPntQIYko559mQHI8sva-NDPdIcPXx8irEvw" />
+          <div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
+            <button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver
+              detalles</button>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-bold text-sm md:text-base line-clamp-1">Godzilla vs. Kong</h3>
+          <p class="text-xs text-zinc-500">Acción • 2021</p>
+        </div>
+      </article>
+      <!-- Movie 3: Kung Fu Panda 4 -->
+      <article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
+        <div
+          class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img alt="Kung Fu Panda 4" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB90jRSxP_nIF2W-BsyQrI1-eN63EpHhSuxn4z9Q4HzHtpsw3O6LyO9nAsAWnpuAyyEKNX6NBrvgcPvzvXlIvCKxpVBOQq5lA5gD-JRA8HYuY2vGL307XBDENpM4LCwaV7IS5VlTMjMJiKCkmkEZ-5xFTjOS7D_oGZVcrUsTrg5MhrM9aoSqRJvWieWOrOzRHWOSXOsbYWHyBl7TneBmoy938_z23_ay7Og20oz7IStWKwaRZ0Edl6G3qAorBJgsb0n1yEeAl2nWA" />
+          <div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
+            <button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver
+              detalles</button>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-bold text-sm md:text-base line-clamp-1">Kung Fu Panda 4</h3>
+          <p class="text-xs text-zinc-500">Animación • 2024</p>
+        </div>
+      </article>
+      <!-- Movie 4: The Conjuring -->
+      <article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
+        <div
+          class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img alt="The Conjuring: Last Rites" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCujJFGYEohY6UIravG4YmFm823uKUohq5r_MePA5ju_eEi-TPW8NAsA6itRNuOXhyqtdkZcrTn79P6c1tLNbvZhba8jVdsQ93XJJNXOXM0FghhctNFXsGDhAumFieSJSPUJl7Bt0als2SM37RsfmrUvyJwRkP1XORNyBZ5oJQyjxF4AQ4Aobp-KN8JVHt_tSu9T_grc-1jp2vebGWZlekCYhP6e4V2kGW2MIsafzB3xjCTE0UDZ9b8dFUvggjZKo_huhRi02-WHQ" />
+          <div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
+            <button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver
+              detalles</button>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-bold text-sm md:text-base line-clamp-1">The Conjuring: Last Rites</h3>
+          <p class="text-xs text-zinc-500">Terror • Próximamente</p>
+        </div>
+      </article>
+      <!-- Movie 5: Superman -->
+      <article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
+        <div
+          class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img alt="Superman" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBQ77dDAcfR5Dzn22EVaXaXkyNmCOLo3w-98u58e5qvEN-6mPCywICcCyLIb-rOoVle20xBr33qqHbihpWrRz8nvKfYlLOJ_AhasF7X1gBvct0f-TTmDaJZi8QBy2XfF7s5SiNrc37NcM0of9Kjw63KE75Un-Bh59lpdDgr1Jte9-TgslnrrRws7Q3pC1p_6nVlXZiSQCokYKkZLsRdMQEygdmjtLX0QcSsk6-3fqhVx4DR9p11_lN3wQR4KEg2pYqlAhOfw1mXg" />
+          <div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
+            <button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver
+              detalles</button>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-bold text-sm md:text-base line-clamp-1">Superman</h3>
+          <p class="text-xs text-zinc-500">Acción • 2025</p>
+        </div>
+      </article>
+      <!-- Movie 6: Mission Impossible -->
+      <article class="movie-card-hover relative group cursor-pointer" data-purpose="movie-card">
+        <div
+          class="aspect-[2/3] w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img alt="Misión Imposible" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDolL_1kZUjaJAH9VzraEVMZSYY1LFGuY-7cnibMNfwHHQuYsxeySuUGsT-CkTdrOCCDeBk0YnNpWWSl8iC0rr6ydnT0uM2N0rMulmRe2cmhLZEUGc9kPbbIF_5jFvZEZWVnrZXSt15MpM09QBQYn7N08lbpMC0i6k6GsORy4M5qvvOAMIbxQuvIXMjwtmYCUW34Xyz_K6oZsEr-IY8umFHmlKLNv1sEhMtKiy0tWSpMjqL3bnu9iwvRiISfzQWY8cEUZ6h9hv89w" />
+          <div class="movie-overlay absolute inset-0 flex flex-col justify-end p-4">
+            <button class="bg-yellow-500 text-black font-bold py-2 rounded-lg text-xs uppercase tracking-wider">Ver
+              detalles</button>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-bold text-sm md:text-base line-clamp-1">Misión: Imposible - Sentencia Final</h3>
+          <p class="text-xs text-zinc-500">Acción • 2025</p>
+        </div>
+      </article>
+    </section>
+  </main>
+  <!-- END: MainContent -->
+  <!-- BEGIN: MobileFooterNavigation -->
+  <nav
+    class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-md bg-zinc-950/90 flex justify-around items-center h-16 border-t border-zinc-800"
+    data-purpose="mobile-nav">
+    <a class="flex flex-col items-center text-yellow-500" href="#">
+      <span class="material-symbols-outlined filled">theater_comedy</span>
+      <span class="text-[10px] mt-1 uppercase font-bold tracking-widest">Cartelera</span>
+    </a>
+    <a class="flex flex-col items-center text-zinc-500 hover:text-zinc-300 transition-colors" href="#">
+      <span class="material-symbols-outlined">confirmation_number</span>
+      <span class="text-[10px] mt-1 uppercase tracking-widest">Tickets</span>
+    </a>
+    <a class="flex flex-col items-center text-zinc-500 hover:text-zinc-300 transition-colors" href="#">
+      <span class="material-symbols-outlined">person</span>
+      <span class="text-[10px] mt-1 uppercase tracking-widest">Perfil</span>
+    </a>
+  </nav>
+  <!-- END: MobileFooterNavigation -->
+  <!-- Placeholder for JS logic described in original document -->
+  <script data-purpose="app-logic">
     // Mock function for genre filtering as referenced in HTML buttons
     function filtrarPorGenero(genero) {
       console.log('Filtrando por:', genero);
@@ -207,10 +247,12 @@
 
     // Search input listener
     const searchInput = document.getElementById('buscar-titulo');
-    if(searchInput) {
+    if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         console.log('Buscando:', e.target.value);
       });
     }
   </script>
-</body></html>
+</body>
+
+</html>
