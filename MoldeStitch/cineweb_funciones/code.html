@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Funciones - Dune: Parte Dos</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-overrides">
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+    }
+
+    /* Custom styles from provided document */
+    .nombre-cine {
+      color: #FEE715;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .boton-volver {
+      background-color: #FEE715;
+      color: #101820;
+      font-weight: bold;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    .boton-volver:hover {
+      background-color: #fff700;
+    }
+
+    .fa-film {
+      color: #FEE715;
+      font-size: 22px;
+    }
+
+    .poster-pelicula {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #101820;
+    }
+
+    .poster-pelicula img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detalle-titulo {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 1px;
+    }
+
+    .tag {
+      background: #232324;
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 5px 13px;
+      border-radius: 18px;
+      letter-spacing: 1px;
+    }
+
+    .detalle-resumen {
+      color: #d6d6d6;
+      font-size: 16px;
+      line-height: 1.32;
+      max-width: 510px;
+    }
+
+    .linea-horizontal {
+      border: none;
+      border-top: 1px solid #313138;
+      margin: 32px 0 27px 0;
+    }
+
+    .fecha-show {
+      color: #FEE715;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+
+    .categoria-nombre {
+      color: #FEE715;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .showtime-btn {
+      color: #FEE715;
+      border: 2px solid #FEE715;
+      background: transparent;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 8px 24px;
+      border-radius: 30px;
+      transition: all 0.2s;
+    }
+
+    .showtime-btn:hover {
+      background-color: #FEE715;
+      color: #101820;
+    }
+
+    /* Responsive scaling for larger screens based on document instructions */
+    @media (min-width: 768px) {
+      .detalle-titulo { font-size: 38px; }
+      .poster-pelicula { width: 280px; height: 420px; }
+    }
+
+    @media (min-width: 1024px) {
+      .detalle-titulo { font-size: 46px; }
+      .poster-pelicula { width: 340px; height: 500px; }
+    }
+  </style>
+</head>
+<body>
+<!-- BEGIN: MainHeader -->
+<nav class="flex items-center justify-between px-[15px] py-[18px] border-b border-[#212121] bg-black sticky top-0 z-50 md:px-[40px] md:py-[20px]">
+<div class="flex items-center gap-[9px]" data-purpose="logo-container">
+<i class="fa-solid fa-film"></i>
+<span class="nombre-cine">CineWeb</span>
+</div>
+<button class="boton-volver" data-purpose="back-button" onclick="history.back()">
+      Volver
+    </button>
+</nav>
+<!-- END: MainHeader -->
+<!-- BEGIN: MovieContent -->
+<main class="flex flex-col gap-[30px] px-[15px] mt-[25px] max-w-[1120px] mx-auto md:flex-row md:gap-[40px] lg:gap-[54px] lg:mt-[44px]">
+<!-- Movie Poster Container -->
+<div class="poster-pelicula mx-auto md:mx-0 w-full max-w-[300px] shrink-0" data-purpose="movie-poster">
+<img alt="Poster de Dune: Parte Dos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPGMLpniSXBO4_3ALxISdy12bVRIZiSO5gWSQZjM-5E1ON34uBQFWE2RuD-m0Xil90XgafeJoEAsf_kRaO_f3xed33DDWphgYXK1JtrGp3Vl1PXo7dIvZR5FG9AzaxkJH0hGfyW2e3xcZ9LSHhh1HfPo0LG_Gn0eKKn1F7qVKauxGwTmfkwi_PVGz2WdfT0mh8uozhB5UC3dHRbQx5JNrlFOPGIlejoVi570Vr3pozUNYLf4KNszGRPItc7ApioC-SP9kpRDWOSQ"/>
+</div>
+<!-- Movie Details Container -->
+<div class="detalle-pelicula flex flex-col flex-1" data-purpose="movie-details">
+<h1 class="detalle-titulo mb-[15px]">DUNE: PARTE DOS</h1>
+<!-- Tags -->
+<div class="tags-pelicula flex flex-wrap gap-[10px] mb-[15px]" data-purpose="movie-tags">
+<span class="tag">CIENCIA FICCIÓN</span>
+<span class="tag">AVENTURA</span>
+<span class="tag">2H 46MIN</span>
+<span class="tag">P13</span>
+</div>
+<!-- Synopsis -->
+<p class="detalle-resumen mb-[20px]">
+        Paul Atreides se une a Chani y a los Fremen mientras busca venganza contra los conspiradores que destruyeron a su familia. Enfrentado a una elección entre el amor de su vida y el destino del universo conocido, se esfuerza por evitar un futuro terrible que solo él puede prever.
+      </p>
+<!-- BEGIN: ShowtimesSection -->
+<div class="showtimes-section mt-[35px]">
+<hr class="linea-horizontal"/>
+<div class="flex flex-col gap-[10px] mb-[15px] md:flex-row md:justify-between md:items-baseline">
+<h2 class="text-[22px] font-bold tracking-[0.3px] md:text-[24px] lg:text-[26px]">Funciones disponibles</h2>
+<span class="fecha-show" id="fecha-actual">Jueves, 23 de Mayo</span>
+</div>
+<div id="contenedor-funciones">
+<!-- Category 1: Digital 2D -->
+<div class="categorias-shows mb-[28px]">
+<h3 class="categoria-nombre mb-[10px]">DIGITAL 2D (Subtitulada)</h3>
+<div class="flex flex-wrap gap-[12px]">
+<button class="showtime-btn">14:30</button>
+<button class="showtime-btn">17:45</button>
+<button class="showtime-btn">21:00</button>
+</div>
+</div>
+<!-- Category 2: IMAX 2D -->
+<div class="categorias-shows mb-[28px]">
+<h3 class="categoria-nombre mb-[10px]">IMAX 2D (Subtitulada)</h3>
+<div class="flex flex-wrap gap-[12px]">
+<button class="showtime-btn">16:00</button>
+<button class="showtime-btn">20:15</button>
+</div>
+</div>
+<!-- Category 3: XD 2D -->
+<div class="categorias-shows mb-[28px]">
+<h3 class="categoria-nombre mb-[10px]">DIGITAL 2D (Doblada)</h3>
+<div class="flex flex-wrap gap-[12px]">
+<button class="showtime-btn">13:00</button>
+<button class="showtime-btn">15:30</button>
+<button class="showtime-btn">19:00</button>
+</div>
+</div>
+</div>
+</div>
+<!-- END: ShowtimesSection -->
+</div>
+</main>
+<!-- END: MovieContent -->
+</body></html>

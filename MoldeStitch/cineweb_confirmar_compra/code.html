@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmar Compra - CineWeb</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="layout">
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #000000;
+      color: #fff;
+    }
+    /* Replicating specific styles from DOCUMENT_2 that aren't native Tailwind */
+    .barra-superior {
+      border-bottom: 1px solid #212121;
+    }
+    .panel-resumen, .panel-formulario {
+      background: #2a3a2a;
+    }
+    .campo-formulario input {
+      background: #1a2a1a;
+      border: 1px solid #3a4a3a;
+    }
+    .separador {
+      border-top: 1px solid #3a4a3a;
+    }
+    .modal-oculto {
+      display: none;
+    }
+    .modal-visible {
+      display: flex;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="min-h-screen">
+<!-- BEGIN: Navigation -->
+<nav class="barra-superior flex items-center justify-between px-6 py-5 md:px-14 bg-black">
+<div class="logo-texto flex items-center gap-2">
+<i class="fa-solid fa-film text-[#FEE715] text-2xl"></i>
+<span class="nombre-cine text-[#FEE715] font-bold text-lg tracking-wider">CineWeb</span>
+</div>
+<div class="flex gap-4">
+<button class="boton-volver border-2 border-[#FEE715] text-[#FEE715] font-semibold px-6 py-2 rounded-full text-sm hover:bg-[#FEE715] hover:text-black transition-colors" onclick="history.back()">Atrás</button>
+<button class="boton-cambiar hidden sm:block border-2 border-[#FEE715] text-[#FEE715] font-semibold px-6 py-2 rounded-full text-sm hover:bg-[#FEE715] hover:text-black transition-colors" onclick="history.back()">Cambiar Orden</button>
+</div>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="contenedor-compra max-w-6xl mx-auto mt-10 px-5 mb-16">
+<header class="text-center mb-10">
+<h1 class="titulo-compra text-4xl md:text-5xl font-black mb-2">Confirmar Compra</h1>
+<p class="subtitulo-compra text-[#b7bcc2] text-base md:text-lg">Por favor, revise los detalles de su orden antes del pago.</p>
+</header>
+<!-- BEGIN: Timer Section -->
+<section class="temporizador text-center mb-12" data-purpose="reservation-timer">
+<p class="text-[#b7bcc2] text-sm mb-4">Sus asientos están reservados por</p>
+<div class="tiempo-restante flex justify-center gap-5">
+<div class="bloque-tiempo flex flex-col items-center">
+<span class="numero text-[#FEE715] text-5xl font-black leading-none" id="minutos">10</span>
+<span class="etiqueta text-[#b7bcc2] text-xs mt-1">Minutos</span>
+</div>
+<div class="bloque-tiempo flex flex-col items-center">
+<span class="numero text-[#FEE715] text-5xl font-black leading-none" id="segundos">00</span>
+<span class="etiqueta text-[#b7bcc2] text-xs mt-1">Segundos</span>
+</div>
+</div>
+</section>
+<!-- END: Timer Section -->
+<div class="contenedor-principal grid grid-cols-1 lg:grid-cols-[1fr,1.2fr] gap-10">
+<!-- BEGIN: Order Summary Panel -->
+<section class="panel-resumen p-8 rounded-[20px]" data-purpose="order-summary">
+<img alt="Dune Parte Dos" class="w-full max-w-[200px] rounded-xl mb-5 shadow-lg mx-auto lg:mx-0" id="poster-pelicula" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPGMLpniSXBO4_3ALxISdy12bVRIZiSO5gWSQZjM-5E1ON34uBQFWE2RuD-m0Xil90XgafeJoEAsf_kRaO_f3xed33DDWphgYXK1JtrGp3Vl1PXo7dIvZR5FG9AzaxkJH0hGfyW2e3xcZ9LSHhh1HfPo0LG_Gn0eKKn1F7qVKauxGwTmfkwi_PVGz2WdfT0mh8uozhB5UC3dHRbQx5JNrlFOPGIlejoVi570Vr3pozUNYLf4KNszGRPItc7ApioC-SP9kpRDWOSQ"/>
+<h2 class="text-3xl font-black mb-2" id="titulo-pelicula">DUNE: Parte Dos</h2>
+<p class="text-[#b7bcc2] text-sm mb-1" id="clasificacion-pelicula">PG-13 • 2h 46m • Ciencia Ficción</p>
+<p class="text-[#b7bcc2] text-sm mb-5" id="sala-funcion">Sala IMAX 3D • Cine Premium</p>
+<hr class="separador my-5 border-none"/>
+<div class="detalles-pago space-y-3">
+<div class="fila-detalle flex justify-between text-[#b7bcc2] text-sm md:text-base">
+<span>Fecha y Hora</span>
+<span class="text-white font-semibold" id="fecha-hora">24 Oct, 2023 - 19:30</span>
+</div>
+<div class="fila-detalle flex justify-between text-[#b7bcc2] text-sm md:text-base">
+<span>Asientos</span>
+<span class="text-white font-semibold" id="asientos-compra">H12, H13</span>
+</div>
+<div class="fila-detalle flex justify-between text-[#b7bcc2] text-sm md:text-base">
+<span>Precio del ticket</span>
+<span class="text-white font-semibold" id="precio-tickets">$24.00</span>
+</div>
+<div class="fila-detalle flex justify-between text-[#b7bcc2] text-sm md:text-base">
+<span>Tarifa de servicio</span>
+<span class="text-white font-semibold" id="tarifa-servicio">$3.50</span>
+</div>
+</div>
+<hr class="separador my-5 border-none"/>
+<div class="fila-total flex justify-between items-center text-white font-black text-xl md:text-2xl mt-4">
+<span>Total</span>
+<span class="text-[#FEE715] text-3xl md:text-4xl" id="total-pagar">$27.50</span>
+</div>
+</section>
+<!-- END: Order Summary Panel -->
+<!-- BEGIN: Contact Form Panel -->
+<section class="panel-formulario p-9 rounded-[20px]" data-purpose="user-details-form">
+<h3 class="text-2xl font-black mb-6">Sus detalles</h3>
+<form class="space-y-6" id="formulario-compra">
+<div class="campo-formulario">
+<label class="block text-[#b7bcc2] text-sm font-semibold mb-2" for="nombre-completo">Nombre completo</label>
+<input class="w-full p-4 rounded-lg text-white focus:ring-[#FEE715] focus:border-[#FEE715] transition-all" id="nombre-completo" placeholder="Ingrese su nombre completo" required="" type="text"/>
+</div>
+<div class="campo-formulario">
+<label class="block text-[#b7bcc2] text-sm font-semibold mb-2" for="email">Correo electrónico</label>
+<input class="w-full p-4 rounded-lg text-white focus:ring-[#FEE715] focus:border-[#FEE715] transition-all" id="email" placeholder="Ingrese su correo electrónico" required="" type="email"/>
+</div>
+<div class="campo-formulario">
+<label class="block text-[#b7bcc2] text-sm font-semibold mb-2" for="telefono">
+              Número de teléfono <span class="opcional text-gray-500 font-normal text-xs ml-1">(Opcional)</span>
+</label>
+<input class="w-full p-4 rounded-lg text-white focus:ring-[#FEE715] focus:border-[#FEE715] transition-all" id="telefono" placeholder="Ingrese su número de teléfono" type="tel"/>
+</div>
+<button class="boton-confirmar w-full bg-[#FEE715] text-black font-bold py-4 rounded-xl text-lg hover:bg-[#fff700] transform hover:scale-[1.02] transition-all shadow-lg mt-2" type="submit">
+            Confirmar y Pagar
+          </button>
+<p class="texto-seguridad text-center text-gray-500 text-xs mt-3">
+<i class="fa-solid fa-lock mr-1"></i> Será redirigido a nuestra pasarela de pago segura.
+          </p>
+</form>
+</section>
+<!-- END: Contact Form Panel -->
+</div>
+</main>
+<!-- END: Main Content -->
+<!-- BEGIN: Footer -->
+<footer class="pie-pagina mt-16 py-6 border-t border-[#212121] text-center">
+<ul class="flex flex-wrap justify-center gap-8 list-none p-0 m-0 text-gray-500 text-sm">
+<li class="hover:text-white cursor-pointer transition-colors">Terms of Service</li>
+<li class="hover:text-white cursor-pointer transition-colors">Privacy Policy</li>
+<li class="hover:text-white cursor-pointer transition-colors">Contact Us</li>
+</ul>
+</footer>
+<!-- END: Footer -->
+<!-- BEGIN: Confirmation Modal -->
+<div class="modal-oculto fixed inset-0 bg-black/90 z-50 items-center justify-center p-4" id="modal-confirmacion">
+<div class="contenido-modal bg-[#161c24] rounded-[25px] p-8 md:p-14 max-w-lg w-full text-center shadow-2xl">
+<div class="icono-exito w-20 h-20 md:w-24 md:h-24 bg-[#FEE715] rounded-full flex items-center justify-center text-4xl md:text-5xl text-black mx-auto mb-6">✓</div>
+<h2 class="text-2xl md:text-3xl font-black mb-8">¡Gracias por tu compra, <span id="nombre-cliente"></span>!</h2>
+<div class="ticket-virtual bg-[#1a2028] rounded-2xl p-6 mb-8 text-left border-l-4 border-[#FEE715]">
+<h3 class="text-[#FEE715] text-xl font-bold mb-4 uppercase tracking-wider">Tu Entrada</h3>
+<div class="space-y-2 text-sm md:text-base">
+<p class="text-[#b7bcc2]"><strong>Película:</strong> <span class="text-white" id="ticket-pelicula"></span></p>
+<p class="text-[#b7bcc2]"><strong>Fecha y Hora:</strong> <span class="text-white" id="ticket-fecha"></span></p>
+<p class="text-[#b7bcc2]"><strong>Asientos:</strong> <span class="text-white" id="ticket-asientos"></span></p>
+<p class="text-[#b7bcc2]"><strong>Email:</strong> <span class="text-white" id="ticket-email"></span></p>
+<p class="text-[#b7bcc2]"><strong>Teléfono:</strong> <span class="text-white" id="ticket-telefono"></span></p>
+<p class="text-[#b7bcc2]"><strong>Total:</strong> <span class="text-white" id="ticket-total"></span></p>
+</div>
+</div>
+<button class="boton-cerrar bg-[#FEE715] text-black font-bold py-4 px-12 rounded-full text-lg hover:bg-[#fff700] hover:scale-105 transition-all" onclick="window.location.reload()">Volver al inicio</button>
+</div>
+</div>
+<!-- END: Confirmation Modal -->
+<!-- BEGIN: Scripts -->
+<script data-purpose="timer-logic">
+    // Simple timer implementation
+    let timeLeft = 600; // 10 minutes
+    const minEl = document.getElementById('minutos');
+    const secEl = document.getElementById('segundos');
+
+    const timer = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        alert('Tu reserva ha expirado. Por favor, selecciona tus asientos de nuevo.');
+        return;
+      }
+      timeLeft--;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      minEl.textContent = minutes.toString().padStart(2, '0');
+      secEl.textContent = seconds.toString().padStart(2, '0');
+    }, 1000);
+  </script>
+<script data-purpose="form-handling">
+    document.getElementById('formulario-compra').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const nombre = document.getElementById('nombre-completo').value;
+      const email = document.getElementById('email').value;
+      const telefono = document.getElementById('telefono').value || 'No proporcionado';
+
+      // Fill modal data
+      document.getElementById('nombre-cliente').textContent = nombre;
+      document.getElementById('ticket-pelicula').textContent = document.getElementById('titulo-pelicula').textContent;
+      document.getElementById('ticket-fecha').textContent = document.getElementById('fecha-hora').textContent;
+      document.getElementById('ticket-asientos').textContent = document.getElementById('asientos-compra').textContent;
+      document.getElementById('ticket-email').textContent = email;
+      document.getElementById('ticket-telefono').textContent = telefono;
+      document.getElementById('ticket-total').textContent = document.getElementById('total-pagar').textContent;
+
+      // Show modal
+      document.getElementById('modal-confirmacion').classList.remove('modal-oculto');
+      document.getElementById('modal-confirmacion').classList.add('modal-visible');
+    });
+  </script>
+<!-- END: Scripts -->
+</body></html>
