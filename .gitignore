@@ -1,3 +1,10 @@
+# =========================
+# Archivos del proyecto a ignorar
+# =========================
+MoldeStitch/
+MoldeStitch.zip
+front/
+
 # Logs
 logs
 *.log
