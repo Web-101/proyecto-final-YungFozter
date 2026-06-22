@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineWeb - Cartelera</title>
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="../Css/DashboardScreen.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <a href="#" class="logo-container">
+            <span class="logo-text">CINEWEB</span>
+        </a>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- Búsqueda -->
+        <section class="seccion_busqueda">
+            <div class="caja_busqueda">
+                <svg class="icono_buscar" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input class="texto_interno_buscar" id="buscar-titulo" placeholder="Buscar película..." type="text" />
+            </div>
+        </section>
+
+        <!-- Filtros -->
+        <section class="seccion_filtros">
+            <div class="lista_filtros">
+                <button class="btn-filtro activo" data-genero="Todos">Todos</button>
+                <button class="btn-filtro" data-genero="Acción">Acción</button>
+                <button class="btn-filtro" data-genero="Animación">Animación</button>
+            </div>
+        </section>
+
+        <!-- Cuadricula de películas -->
+        <section class="cuadricula_peliculas" id="contenedor-peliculas">
+            <!-- Dune -->
+            <article class="tarjeta_pelicula" data-genero="Ciencia Ficción">
+                <div class="movie-card-poster-wrapper">
+                    <img alt="Dune Parte Dos" class="movie-poster-img" src="../img/image1.png" />
+                    <div class="capa-pelicula">
+                        <button class="btn-detalles">Ver detalles</button>
+                    </div>
+                </div>
+                <div class="movie-card-info">
+                    <h3 class="titulo_pelicula">Dune: Parte Dos</h3>
+                    <p class="peli_descripcion">Ciencia Ficción • 2024</p>
+                </div>
+            </article>
+
+            <!-- Godzilla vs Kong -->
+            <article class="tarjeta_pelicula" data-genero="Acción">
+                <div class="movie-card-poster-wrapper">
+                    <img alt="Godzilla vs Kong" class="movie-poster-img" src="../img/image2.png" />
+                    <div class="capa-pelicula">
+                        <button class="btn-details">Ver detalles</button>
+                    </div>
+                </div>
+                <div class="movie-card-info">
+                    <h3 class="titulo_pelicula">Godzilla vs. Kong</h3>
+                    <p class="movie-meta">Acción • 2021</p>
+                </div>
+            </article>
+
+            <!-- Kung Fu Panda 4 -->
+            <article class="tarjeta_pelicula" data-genero="Animación">
+                <div class="movie-card-poster-wrapper">
+                    <img alt="Kung Fu Panda 4" class="movie-poster-img" src="../img/image3.png" />
+                    <div class="capa-pelicula">
+                        <button class="btn-details">Ver detalles</button>
+                    </div>
+                </div>
+                <div class="movie-card-info">
+                    <h3 class="titulo_pelicula">Kung Fu Panda 4</h3>
+                    <p class="peli_descripcion">Animación • 2024</p>
+                </div>
+            </article>
+
+            <!-- The Conjuring -->
+            <article class="tarjeta_pelicula" data-genero="Terror">
+                <div class="movie-card-poster-wrapper">
+                    <img alt="The Conjuring: Last Rites" class="movie-poster-img" src="../img/image4.png" />
+                    <div class="capa-pelicula">
+                        <button class="btn-details">Ver detalles</button>
+                    </div>
+                </div>
+                <div class="movie-card-info">
+                    <h3 class="titulo_pelicula">The Conjuring: Last Rites</h3>
+                    <p class="peli_descripcion">Terror • Próximamente</p>
+                </div>
+            </article>
+
+            <!-- Superman -->
+            <article class="tarjeta_pelicula" data-genero="Acción">
+                <div class="movie-card-poster-wrapper">
+                    <img alt="Superman" class="movie-poster-img" src="../img/image5.png" />
+                    <div class="capa-pelicula">
+                        <button class="btn-details">Ver detalles</button>
+                    </div>
+                </div>
+                <div class="movie-card-info">
+                    <h3 class="titulo_pelicula">Superman</h3>
+                    <p class="peli_descripcion">Acción • 2025</p>
+                </div>
+            </article>
+
+            <!-- Misión Imposible -->
+            <article class="tarjeta_pelicula" data-genero="Acción">
+                <div class="movie-card-poster-wrapper">
+                    <img alt="Misión Imposible" class="movie-poster-img" src="../img/image6.png" />
+                    <div class="capa-pelicula">
+                        <button class="btn-details">Ver detalles</button>
+                    </div>
+                </div>
+                <div class="movie-card-info">
+                    <h3 class="titulo_pelicula">Misión: Imposible - Sentencia Final</h3>
+                    <p class="peli_descripcion">Acción • 2025</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- NAVEGACIÓN INFERIOR -->
+    <nav class="navegacion_inferior">
+        <a class="navegacion_inferior_activo" href="#">
+            <span class="texto_inferior_activo">Cartelera</span>
+        </a>
+        <a class="navegacion_inferior" href="#">
+            <span class="texto_inferior">TICKETS</span>
+        </a>
+        <a class="navegacion_inferior" href="#">
+            <span class="texto_inferior">PERFIL</span>
+        </a>
+    </nav>
+
+    <!-- JavaScript integrado -->
+    <script>
+        // Filtrado por género (solo tres opciones)
+        function filtrarPorGenero(genero) {
+            const buttons = document.querySelectorAll('.btn-filter');
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.genero === genero);
+            });
+
+            const cards = document.querySelectorAll('.movie-card');
+            cards.forEach(card => {
+                const meta = card.querySelector('.movie-meta').textContent;
+                const generoCard = card.dataset.genero;
+                const mostrar = (genero === 'Todos') || (generoCard && generoCard === genero) || meta.includes(genero);
+                card.style.display = mostrar ? 'block' : 'none';
+            });
+        }
+
+        // Asignar eventos a los botones de filtro
+        document.querySelectorAll('.btn-filter').forEach(btn => {
+            btn.addEventListener('click', function () {
+                filtrarPorGenero(this.dataset.genero);
+            });
+        });
+
+        // Búsqueda en tiempo real
+        const searchInput = document.getElementById('buscar-titulo');
+        if (searchInput) {
+            searchInput.addEventListener('input', function (e) {
+                const query = e.target.value.toLowerCase().trim();
+                const cards = document.querySelectorAll('.movie-card');
+                cards.forEach(card => {
+                    const title = card.querySelector('.movie-title').textContent.toLowerCase();
+                    card.style.display = title.includes(query) ? 'block' : 'none';
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
