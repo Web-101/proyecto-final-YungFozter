@@ -1,0 +1,201 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "titulo": "Dune: Parte Dos",
+      "poster": "../img/image1.png",
+      "sinopsis": "Paul Atreides se une a los Fremen y emprende un camino de venganza contra los conspiradores que destruyeron a su familia. Enfrentando una elección entre el amor de su vida y el destino del universo conocido, busca evitar un terrible futuro que solo él puede prever.",
+      "genero": "Ciencia Ficción",
+      "duracion": "2h 46min",
+      "clasificacion": "PG-13",
+      "año": 2024,
+      "director": "Denis Villeneuve",
+      "funciones": [
+        {
+          "id": "f1-1",
+          "hora": "13:00",
+          "sala": "Sala 1",
+          "precio": 12.00,
+          "asientosOcupados": ["A1", "A2", "B3", "B4", "C5", "D2", "E7", "F1", "F8", "G3"]
+        },
+        {
+          "id": "f1-2",
+          "hora": "16:30",
+          "sala": "Sala 3",
+          "precio": 12.00,
+          "asientosOcupados": ["A5", "B2", "B6", "C1", "C8", "D4", "D5", "E3", "G7"]
+        },
+        {
+          "id": "f1-3",
+          "hora": "20:00",
+          "sala": "Sala 1",
+          "precio": 15.00,
+          "asientosOcupados": ["A1", "A3", "B5", "C2", "D6", "D7", "E4", "F2", "G1", "G8", "H3", "H4"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Godzilla vs. Kong",
+      "poster": "../img/image2.png",
+      "sinopsis": "En esta épica batalla de titanes, el poderoso Kong y el implacable Godzilla se enfrentan en una confrontación espectacular mientras la humanidad intenta sobrevivir a la guerra de los gigantes que amenaza con destruir el mundo.",
+      "genero": "Acción",
+      "duracion": "1h 53min",
+      "clasificacion": "PG-13",
+      "año": 2021,
+      "director": "Adam Wingard",
+      "funciones": [
+        {
+          "id": "f2-1",
+          "hora": "14:00",
+          "sala": "Sala 2",
+          "precio": 10.00,
+          "asientosOcupados": ["A2", "A4", "B1", "C3", "D8", "E5", "F6", "G2"]
+        },
+        {
+          "id": "f2-2",
+          "hora": "17:00",
+          "sala": "Sala 4",
+          "precio": 10.00,
+          "asientosOcupados": ["B3", "B7", "C4", "D1", "D5", "E8", "F3", "H6"]
+        },
+        {
+          "id": "f2-3",
+          "hora": "21:00",
+          "sala": "Sala 2",
+          "precio": 13.00,
+          "asientosOcupados": ["A6", "B2", "B8", "C5", "D3", "E1", "E7", "F4", "G5", "H1", "H7"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Kung Fu Panda 4",
+      "poster": "../img/image3.png",
+      "sinopsis": "Po debe entrenar a un nuevo Guerrero Dragón y enfrentarse a la Camaleona, una nueva villana que puede robar los poderes de los maestros del kung fu. Una aventura llena de humor, acción y emocionantes peleas animadas.",
+      "genero": "Animación",
+      "duracion": "1h 34min",
+      "clasificacion": "PG",
+      "año": 2024,
+      "director": "Mike Mitchell",
+      "funciones": [
+        {
+          "id": "f3-1",
+          "hora": "11:00",
+          "sala": "Sala 5",
+          "precio": 9.00,
+          "asientosOcupados": ["A1", "A3", "B2", "B4", "C6", "D7", "E2", "F5"]
+        },
+        {
+          "id": "f3-2",
+          "hora": "14:30",
+          "sala": "Sala 5",
+          "precio": 9.00,
+          "asientosOcupados": ["A7", "B1", "C3", "C5", "D8", "E4", "F6", "G2", "H3"]
+        },
+        {
+          "id": "f3-3",
+          "hora": "18:00",
+          "sala": "Sala 6",
+          "precio": 11.00,
+          "asientosOcupados": ["A2", "A5", "B3", "C7", "D1", "D4", "E6", "F8", "G3", "H5"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "titulo": "The Conjuring: Last Rites",
+      "poster": "../img/image4.png",
+      "sinopsis": "En la conclusión definitiva de la saga, Ed y Lorraine Warren enfrentan su caso más oscuro y perturbador hasta la fecha, luchando contra una entidad ancestral que amenaza con desatar el caos en el mundo de los vivos.",
+      "genero": "Terror",
+      "duracion": "2h 05min",
+      "clasificacion": "R",
+      "año": 2025,
+      "director": "Michael Chaves",
+      "funciones": [
+        {
+          "id": "f4-1",
+          "hora": "20:30",
+          "sala": "Sala 7",
+          "precio": 11.00,
+          "asientosOcupados": ["A3", "B6", "C2", "D7", "E1", "E5", "F4", "G8", "H2"]
+        },
+        {
+          "id": "f4-2",
+          "hora": "23:00",
+          "sala": "Sala 7",
+          "precio": 14.00,
+          "asientosOcupados": ["A1", "A8", "B4", "C6", "D3", "E7", "F2", "G5", "H1", "H6"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "Superman",
+      "poster": "../img/image5.png",
+      "sinopsis": "El hombre de acero regresa en una nueva aventura épica que redefine el legado del superhéroe más icónico del mundo. Clark Kent debe equilibrar su vida como reportero del Daily Planet mientras protege al mundo de amenazas sin precedentes.",
+      "genero": "Acción",
+      "duracion": "2h 09min",
+      "clasificacion": "PG-13",
+      "año": 2025,
+      "director": "James Gunn",
+      "funciones": [
+        {
+          "id": "f5-1",
+          "hora": "12:00",
+          "sala": "Sala 2",
+          "precio": 13.00,
+          "asientosOcupados": ["A4", "B1", "B7", "C3", "D6", "E2", "F5", "G8"]
+        },
+        {
+          "id": "f5-2",
+          "hora": "15:30",
+          "sala": "Sala 4",
+          "precio": 13.00,
+          "asientosOcupados": ["A2", "A6", "B4", "C8", "D1", "D5", "E3", "F7", "G4"]
+        },
+        {
+          "id": "f5-3",
+          "hora": "19:00",
+          "sala": "Sala 2",
+          "precio": 16.00,
+          "asientosOcupados": ["A1", "A5", "B2", "B6", "C3", "C7", "D4", "D8", "E2", "E6", "F1", "F5", "G3"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "titulo": "Misión: Imposible - Sentencia Final",
+      "poster": "../img/image6.png",
+      "sinopsis": "Ethan Hunt y su equipo de la IMF se enfrentan a su misión más peligrosa hasta la fecha: rastrear a una nueva IA que ha amenazado toda la humanidad antes de que caiga en las manos equivocadas. En un mundo de adversarios peligrosos y aliados impredecibles, nada permanecerá oculto para siempre.",
+      "genero": "Acción",
+      "duracion": "2h 49min",
+      "clasificacion": "PG-13",
+      "año": 2025,
+      "director": "Christopher McQuarrie",
+      "funciones": [
+        {
+          "id": "f6-1",
+          "hora": "13:30",
+          "sala": "Sala 3",
+          "precio": 13.00,
+          "asientosOcupados": ["A7", "B3", "C5", "D2", "D8", "E4", "F1", "G6", "H4"]
+        },
+        {
+          "id": "f6-2",
+          "hora": "17:30",
+          "sala": "Sala 6",
+          "precio": 13.00,
+          "asientosOcupados": ["A2", "B5", "C1", "C7", "D4", "E3", "E8", "F6", "G2"]
+        },
+        {
+          "id": "f6-3",
+          "hora": "21:30",
+          "sala": "Sala 3",
+          "precio": 16.00,
+          "asientosOcupados": ["A1", "A3", "B2", "B6", "C4", "C8", "D5", "D7", "E1", "E6", "F3", "G7", "H2", "H8"]
+        }
+      ]
+    }
+  ]
+}

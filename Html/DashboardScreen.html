@@ -47,12 +47,13 @@
                 <div class="movie-card-poster-wrapper">
                     <img alt="Dune Parte Dos" class="movie-poster-img" src="../img/image1.png" />
                     <div class="capa-pelicula">
-                        <button class="btn-detalles">Ver detalles</button>
+                        <button class="btn-detalles" onclick="window.location.href='../Html/pelicula.html?id=1'">Ver
+                            detalles</button>
                     </div>
                 </div>
                 <div class="movie-card-info">
                     <h3 class="titulo_pelicula">Dune: Parte Dos</h3>
-                    <p class="peli_descripcion">Ciencia Ficción • 2024</p>
+                    <p class="peli_descripcion">Ciencia Ficción / 2024</p>
                 </div>
             </article>
 
@@ -61,12 +62,13 @@
                 <div class="movie-card-poster-wrapper">
                     <img alt="Godzilla vs Kong" class="movie-poster-img" src="../img/image2.png" />
                     <div class="capa-pelicula">
-                        <button class="btn-details">Ver detalles</button>
+                        <button class="btn-details" onclick="window.location.href='../Html/pelicula.html?id=2'">Ver
+                            detalles</button>
                     </div>
                 </div>
                 <div class="movie-card-info">
                     <h3 class="titulo_pelicula">Godzilla vs. Kong</h3>
-                    <p class="movie-meta">Acción • 2021</p>
+                    <p class="movie-meta">Acción / 2021</p>
                 </div>
             </article>
 
@@ -75,12 +77,13 @@
                 <div class="movie-card-poster-wrapper">
                     <img alt="Kung Fu Panda 4" class="movie-poster-img" src="../img/image3.png" />
                     <div class="capa-pelicula">
-                        <button class="btn-details">Ver detalles</button>
+                        <button class="btn-details" onclick="window.location.href='../Html/pelicula.html?id=3'">Ver
+                            detalles</button>
                     </div>
                 </div>
                 <div class="movie-card-info">
                     <h3 class="titulo_pelicula">Kung Fu Panda 4</h3>
-                    <p class="peli_descripcion">Animación • 2024</p>
+                    <p class="peli_descripcion">Animación / 2024</p>
                 </div>
             </article>
 
@@ -89,12 +92,13 @@
                 <div class="movie-card-poster-wrapper">
                     <img alt="The Conjuring: Last Rites" class="movie-poster-img" src="../img/image4.png" />
                     <div class="capa-pelicula">
-                        <button class="btn-details">Ver detalles</button>
+                        <button class="btn-details" onclick="window.location.href='../Html/pelicula.html?id=4'">Ver
+                            detalles</button>
                     </div>
                 </div>
                 <div class="movie-card-info">
                     <h3 class="titulo_pelicula">The Conjuring: Last Rites</h3>
-                    <p class="peli_descripcion">Terror • Próximamente</p>
+                    <p class="peli_descripcion">Terror / Próximamente</p>
                 </div>
             </article>
 
@@ -103,12 +107,13 @@
                 <div class="movie-card-poster-wrapper">
                     <img alt="Superman" class="movie-poster-img" src="../img/image5.png" />
                     <div class="capa-pelicula">
-                        <button class="btn-details">Ver detalles</button>
+                        <button class="btn-details" onclick="window.location.href='../Html/pelicula.html?id=5'">Ver
+                            detalles</button>
                     </div>
                 </div>
                 <div class="movie-card-info">
                     <h3 class="titulo_pelicula">Superman</h3>
-                    <p class="peli_descripcion">Acción • 2025</p>
+                    <p class="peli_descripcion">Acción / 2025</p>
                 </div>
             </article>
 
@@ -117,12 +122,13 @@
                 <div class="movie-card-poster-wrapper">
                     <img alt="Misión Imposible" class="movie-poster-img" src="../img/image6.png" />
                     <div class="capa-pelicula">
-                        <button class="btn-details">Ver detalles</button>
+                        <button class="btn-details" onclick="window.location.href='../Html/pelicula.html?id=6'">Ver
+                            detalles</button>
                     </div>
                 </div>
                 <div class="movie-card-info">
                     <h3 class="titulo_pelicula">Misión: Imposible - Sentencia Final</h3>
-                    <p class="peli_descripcion">Acción • 2025</p>
+                    <p class="peli_descripcion">Acción / 2025</p>
                 </div>
             </article>
         </section>
@@ -142,43 +148,7 @@
     </nav>
 
     <!-- JavaScript integrado -->
-    <script>
-        // Filtrado por género (solo tres opciones)
-        function filtrarPorGenero(genero) {
-            const buttons = document.querySelectorAll('.btn-filter');
-            buttons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.genero === genero);
-            });
-
-            const cards = document.querySelectorAll('.movie-card');
-            cards.forEach(card => {
-                const meta = card.querySelector('.movie-meta').textContent;
-                const generoCard = card.dataset.genero;
-                const mostrar = (genero === 'Todos') || (generoCard && generoCard === genero) || meta.includes(genero);
-                card.style.display = mostrar ? 'block' : 'none';
-            });
-        }
-
-        // Asignar eventos a los botones de filtro
-        document.querySelectorAll('.btn-filter').forEach(btn => {
-            btn.addEventListener('click', function () {
-                filtrarPorGenero(this.dataset.genero);
-            });
-        });
-
-        // Búsqueda en tiempo real
-        const searchInput = document.getElementById('buscar-titulo');
-        if (searchInput) {
-            searchInput.addEventListener('input', function (e) {
-                const query = e.target.value.toLowerCase().trim();
-                const cards = document.querySelectorAll('.movie-card');
-                cards.forEach(card => {
-                    const title = card.querySelector('.movie-title').textContent.toLowerCase();
-                    card.style.display = title.includes(query) ? 'block' : 'none';
-                });
-            });
-        }
-    </script>
+    <script src="../javascript/DashboardScreen.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,123 @@
+/* ==========================================
+   Estilos para Detalles de Película (Tema Oscuro)
+   ========================================== */
+
+/* Reiniciar márgenes básicos para consistencia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; /* Fondo oscuro principal */
+    color: white; /* Texto blanco principal */
+    padding: 20px;
+}
+
+/* --- Encabezado --- */
+.encabezado {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid gray; /* Línea separadora gris */
+}
+
+.boton-volver {
+    padding: 8px 12px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.boton-volver:hover {
+    background-color: darkgray;
+}
+
+.encabezado h1 {
+    color: yellow; /* Acento amarillo para el título principal */
+}
+
+/* --- Contenedor Principal --- */
+.contenedor-principal {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #1a1a1a; /* Un gris muy oscuro para separar del fondo negro */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+/* Clase de utilidad para ocultar elementos */
+.oculto {
+    display: none !important;
+}
+
+/* --- Información de la Película --- */
+.informacion-pelicula {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 480px) {
+    .informacion-pelicula {
+        flex-direction: row;
+    }
+}
+
+.imagen-poster {
+    width: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 1px solid gray;
+}
+
+.textos-pelicula h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.textos-pelicula p {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-size: 14px;
+    color: lightgray; /* Texto secundario en gris claro */
+}
+
+.textos-pelicula strong {
+    color: white; /* Resaltar las etiquetas en blanco */
+}
+
+/* --- Sección de Funciones (Horarios) --- */
+.seccion-funciones h3 {
+    margin-bottom: 15px;
+    color: yellow; /* Título de sección en amarillo */
+}
+
+.lista-funciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.boton-funcion {
+    background-color: yellow;
+    color: black;
+    border: 1px solid orange; /* Borde sutil para darle profundidad */
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-funcion:hover {
+    background-color: orange;
+}

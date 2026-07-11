@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Película</title>
+    <link rel="stylesheet" href="../Css/pelicula.css">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <button id="boton-volver" class="boton-volver">Volver a Cartelera</button>
+        <h1>Detalle de Película</h1>
+    </header>
+
+    <main class="contenedor-principal">
+        <p id="mensaje-carga">Cargando la información, por favor espera...</p>
+
+        <section id="seccion-detalles" class="oculto">
+            <article class="informacion-pelicula">
+                <img id="imagen-poster" class="imagen-poster" src="" alt="Póster de la película">
+
+                <div class="textos-pelicula">
+                    <h2 id="titulo-pelicula">Título de la Película</h2>
+                    <p><strong>Género:</strong> <span id="genero-pelicula"></span></p>
+                    <p><strong>Duración:</strong> <span id="duracion-pelicula"></span></p>
+                    <p><strong>Clasificación:</strong> <span id="clasificacion-pelicula"></span></p>
+                    <p><strong>Sinopsis:</strong> <span id="sinopsis-pelicula"></span></p>
+                </div>
+            </article>
+
+            <aside class="seccion-funciones">
+                <h3>Horarios Disponibles</h3>
+                <div id="lista-funciones" class="lista-funciones"></div>
+            </aside>
+
+        </section>
+    </main>
+
+    <script src="../javascript/pelicula.js"></script>
+</body>
+
+</html>
