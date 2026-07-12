@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineWeb - Finalizar Compra</title>
+    <link rel="stylesheet" href="../Css/compra.css" />
+</head>
+
+<body>
+    <header class="encabezado">
+        <button id="boton-volver" class="boton-volver">Volver</button>
+        <h1>Finalizar Compra</h1>
+    </header>
+
+    <main class="contenedor-principal">
+        <!-- MENSAJE DE CARGA -->
+        <div id="mensaje-carga" class="mensaje-carga">Cargando resumen del pedido...</div>
+
+        <div id="seccion-compra" class="oculto">
+            <!-- Resumen del Pedido -->
+            <section class="resumen-pedido">
+                <h2>Resumen de tu Pedido</h2>
+                <p><strong>Película:</strong> <span id="resumen-pelicula"></span></p>
+                <p><strong>Función:</strong> <span id="resumen-funcion"></span></p>
+                <p><strong>Asientos:</strong> <span id="resumen-asientos"></span></p>
+                <p class="total-destacado"><strong>Total a pagar:</strong> <span id="resumen-total"></span></p>
+            </section>
+
+            <!-- Formulario del Usuario -->
+            <section class="formulario-usuario">
+                <h2>Tus Datos</h2>
+                <form id="form-compra">
+                    <div class="grupo-form">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="grupo-form">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="grupo-form">
+                        <label for="telefono">Teléfono (Opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. 123456789">
+                    </div>
+
+                    <div id="mensaje-error" class="mensaje-error oculto"></div>
+
+                    <button type="submit" id="btn-comprar" class="boton-comprar">Comprar Entradas</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- TICKET VIRTUAL DE CONFIRMACIÓN -->
+        <div id="seccion-ticket" class="oculto">
+            <div class="ticket-contenedor">
+                <h2 id="ticket-mensaje-gracias" class="ticket-gracias"></h2>
+                <p class="ticket-instruccion">Este es tu ticket virtual. Presenta este código en la entrada:</p>
+
+                <div class="ticket-detalle">
+                    <h3 id="ticket-id" class="ticket-codigo"></h3>
+                    <p><strong>Película:</strong> <span id="ticket-pelicula"></span></p>
+                    <p><strong>Función (Hora - Sala):</strong> <span id="ticket-funcion"></span></p>
+                    <p><strong>Asientos:</strong> <span id="ticket-asientos"></span></p>
+                    <p><strong>Total Pagado:</strong> <span id="ticket-total"></span></p>
+                </div>
+
+                <button id="btn-inicio" class="boton-inicio">Volver a la Cartelera</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../javascript/compra.js"></script>
+</body>
+
+</html>

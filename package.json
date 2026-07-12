@@ -1,0 +1,24 @@
+{
+  "name": "cineweb-backend",
+  "version": "1.0.0",
+  "description": "Backend API para la aplicación web Cartelera de Cine — Proyecto Final Web 1",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "keywords": [
+    "cine",
+    "cartelera",
+    "nodejs",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^25.3.0"
+  },
+  "allowScripts": {
+    "puppeteer@25.3.0": true
+  }
+}

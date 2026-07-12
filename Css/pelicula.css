@@ -1,8 +1,3 @@
-/* ==========================================
-   Estilos para Detalles de Película (Tema Oscuro)
-   ========================================== */
-
-/* Reiniciar márgenes básicos para consistencia */
 * {
     margin: 0;
     padding: 0;
@@ -11,19 +6,19 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: black; /* Fondo oscuro principal */
-    color: white; /* Texto blanco principal */
+    background-color: black;
+    color: white;
     padding: 20px;
 }
 
-/* --- Encabezado --- */
 .encabezado {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 2px solid gray; /* Línea separadora gris */
+    border-bottom: 2px solid gray;
+    /* Línea separadora gris */
 }
 
 .boton-volver {
@@ -41,25 +36,26 @@ body {
 }
 
 .encabezado h1 {
-    color: yellow; /* Acento amarillo para el título principal */
+    color: yellow;
+    /* Acento amarillo para el título principal */
 }
 
 /* --- Contenedor Principal --- */
 .contenedor-principal {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #1a1a1a; /* Un gris muy oscuro para separar del fondo negro */
+    background-color: #1a1a1a;
+    /* Gris oscuro para separar del fondo negro */
     padding: 20px;
     border-radius: 8px;
     border: 1px solid gray;
 }
 
-/* Clase de utilidad para ocultar elementos */
 .oculto {
     display: none !important;
 }
 
-/* --- Información de la Película --- */
+/* Información de la Película */
 .informacion-pelicula {
     display: flex;
     flex-direction: column;
@@ -89,17 +85,20 @@ body {
     margin-bottom: 8px;
     line-height: 1.4;
     font-size: 14px;
-    color: lightgray; /* Texto secundario en gris claro */
+    color: lightgray;
+    /* Texto secundario en gris claro */
 }
 
 .textos-pelicula strong {
-    color: white; /* Resaltar las etiquetas en blanco */
+    color: white;
+    /* Resaltar las etiquetas en blanco */
 }
 
-/* --- Sección de Funciones (Horarios) --- */
+/* Sección de Funciones (Horarios) */
 .seccion-funciones h3 {
     margin-bottom: 15px;
-    color: yellow; /* Título de sección en amarillo */
+    color: yellow;
+    /* Título de sección en amarillo */
 }
 
 .lista-funciones {
@@ -111,7 +110,8 @@ body {
 .boton-funcion {
     background-color: yellow;
     color: black;
-    border: 1px solid orange; /* Borde sutil para darle profundidad */
+    border: 1px solid orange;
+    /* Borde sutil para darle profundidad */
     border-radius: 5px;
     padding: 10px 15px;
     font-weight: bold;
